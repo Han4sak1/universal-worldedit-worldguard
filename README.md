@@ -22,6 +22,7 @@ taboo("ink.ptms:um:1.0.0")
 #### 额外工具
 1. FAWE的区块光照刷新工具
 2. WorldGuard的区域进入事件
+3. WorldEdit选区工具
 
 ## 关于FAWE
 在FAWE对应WE版本为6.x时基本可支持(建议使用21.03.26, 支持1.8.8-1.12.2)，
