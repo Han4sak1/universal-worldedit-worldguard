@@ -6,7 +6,7 @@ import ink.ptms.uw.common.worldedit.util.math.UWBlockVector3
 import ink.ptms.uw.common.worldedit.util.math.UWVector3
 
 /**
- * ink.ptms.uw.common.worldguard
+ * ink.ptms.uw.common.worldedit
  *
  * @author Gei
  * @since 2025/01/21

@@ -12,7 +12,7 @@ import java.io.InputStream
 import java.io.OutputStream
 
 /**
- * ink.ptms.uw.common.worldguard
+ * ink.ptms.uw.impl7.worldedit
  *
  * @author Gei
  * @since 2025/01/21

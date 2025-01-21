@@ -8,7 +8,7 @@ import org.bukkit.Location
 import org.bukkit.World
 
 /**
- * ink.ptms.uw.common.worldguard
+ * ink.ptms.uw.impl7.worldedit
  *
  * @author Gei
  * @since 2025/01/21

@@ -8,7 +8,7 @@ import org.bukkit.World
 import taboolib.library.reflex.ReflexClass
 
 /**
- * ink.ptms.uw.common.worldguard
+ * ink.ptms.uw.impl6.worldedit
  *
  * @author Gei
  * @since 2025/01/21

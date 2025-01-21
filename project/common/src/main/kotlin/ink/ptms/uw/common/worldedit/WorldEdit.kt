@@ -7,7 +7,7 @@ import ink.ptms.uw.common.worldedit.session.UWClipBoardHolder
 import ink.ptms.uw.common.worldedit.tools.UWWETools
 
 /**
- * ink.ptms.uw.common.worldguard
+ * ink.ptms.uw.common.worldedit
  *
  * @author Gei
  * @since 2025/01/21

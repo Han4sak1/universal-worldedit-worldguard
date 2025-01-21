@@ -8,7 +8,7 @@ import taboolib.common.LifeCycle
 import taboolib.common.platform.Awake
 
 /**
- * ink.ptms.uw.common.worldguard
+ * ink.ptms.uw.impl7.worldguard
  *
  * @author Gei
  * @since 2025/01/21

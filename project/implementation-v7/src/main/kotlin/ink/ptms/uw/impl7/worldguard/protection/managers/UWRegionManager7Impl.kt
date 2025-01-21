@@ -14,7 +14,7 @@ import org.bukkit.World
 import org.bukkit.entity.Player
 
 /**
- * ink.ptms.uw.common.worldguard
+ * ink.ptms.uw.impl7.worldguard
  *
  * @author Gei
  * @since 2025/01/21

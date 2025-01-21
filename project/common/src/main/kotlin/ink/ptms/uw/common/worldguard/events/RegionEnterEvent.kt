@@ -4,7 +4,7 @@ import com.sk89q.worldguard.protection.regions.ProtectedRegion
 import org.bukkit.entity.Player
 
 /**
- * ink.ptms.uw.common.worldguard
+ * ink.ptms.uw.common.worldguard.events
  *
  * WorldGuard区域进入事件
  * @param movementWay 进入方式

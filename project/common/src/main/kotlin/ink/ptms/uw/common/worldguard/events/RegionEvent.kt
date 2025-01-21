@@ -5,7 +5,7 @@ import org.bukkit.entity.Player
 import taboolib.platform.type.BukkitProxyEvent
 
 /**
- * ink.ptms.uw.common.worldguard
+ * ink.ptms.uw.common.worldguard.events
  *
  * @author Gei
  * @since 2025/01/21

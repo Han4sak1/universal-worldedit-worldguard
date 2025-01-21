@@ -15,6 +15,12 @@ import org.bukkit.Location
 import org.bukkit.World
 import org.bukkit.entity.Player
 
+/**
+ * ink.ptms.uw.impl6.worldguard
+ *
+ * @author Gei
+ * @since 2025/01/21
+ **/
 class UWRegionManager6Impl(world: World): UWRegionManager(world) {
 
     val wgRegionManager = WGBukkit.getRegionManager(world)

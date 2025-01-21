@@ -15,7 +15,7 @@ import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.CopyOnWriteArraySet
 
 /**
- * ink.ptms.uw.common.worldguard
+ * ink.ptms.uw.common.worldguard.events.manager
  *
  * @author Gei
  * @since 2025/01/21
