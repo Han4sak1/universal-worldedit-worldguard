@@ -6,6 +6,7 @@ import com.sk89q.worldedit.function.operation.Operation
 import com.sk89q.worldedit.session.ClipboardHolder
 import ink.ptms.uw.common.worldedit.session.UWClipBoardHolder
 import ink.ptms.uw.common.worldedit.session.UWPasteBuilder
+import ink.ptms.uw.common.worldedit.util.math.UWBlockVector3
 
 /**
  * ink.ptms.uw.impl6.worldedit.session
@@ -16,12 +17,9 @@ class UWPasterBuilder6Impl(override val holder: UWClipBoardHolder, override val 
     private var to: Vector? = null
     private var ignoreAirBlocks: Boolean = false
 
-    override fun to(vector: Any): UWPasteBuilder? {
-        return if (vector !is Vector) null
-        else {
-            this.to = vector
-            this
-        }
+    override fun to(vector: UWBlockVector3): UWPasteBuilder {
+        this.to = Vector(vector.x, vector.y, vector.z)
+        return this
     }
 
     override fun maskSource(sourceMask: Any): UWPasteBuilder {

@@ -2,6 +2,8 @@ package ink.ptms.uw.common.worldedit.bukkit
 
 import com.sk89q.worldedit.util.Location
 import com.sk89q.worldedit.world.World
+import ink.ptms.uw.common.worldedit.util.math.UWBlockVector3
+import ink.ptms.uw.common.worldedit.util.math.UWVector3
 
 /**
  * ink.ptms.uw.common.worldguard
@@ -35,18 +37,25 @@ interface UWBukkitAdapter {
     //向量
     /**
      * 将Bukkit Location转换为WorldEdit BlockVector3
-     * @return 6返回BlockVector 7返回BlockVector3
      */
-    fun asBlockVector3(location: org.bukkit.Location): Any
+    fun asBlockVector3(location: org.bukkit.Location): UWBlockVector3
 
     /**
      * 将Bukkit Location转换为WorldEdit Vector3
-     * @return 6返回Vector 7返回Vector3
      */
-    fun asVector3(location: org.bukkit.Location): Any
+    fun asVector3(location: org.bukkit.Location): UWVector3
 
     /**
-     * 将WorldEdit Vector(6:Vector/BlockVector 7:Vector3/BlockVector3) 转换为Bukkit Location
+     * 将UWVector3 转换为Bukkit Location
      */
-    fun asBukkitLocation(vector: Any, world: org.bukkit.World): org.bukkit.Location?
+    fun asBukkitLocation(vector: UWVector3, world: org.bukkit.World): org.bukkit.Location? {
+        return org.bukkit.Location(world, vector.x, vector.y, vector.z)
+    }
+
+    /**
+     * 将UWBlockVector3 转换为Bukkit Location
+     */
+    fun asBukkitLocation(vector: UWBlockVector3, world: org.bukkit.World): org.bukkit.Location {
+        return org.bukkit.Location(world, vector.x.toDouble(), vector.y.toDouble(), vector.z.toDouble())
+    }
 }

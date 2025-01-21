@@ -1,9 +1,9 @@
 package ink.ptms.uw.impl7.worldedit.bukkit
 
 import com.sk89q.worldedit.bukkit.BukkitAdapter
-import com.sk89q.worldedit.math.BlockVector3
-import com.sk89q.worldedit.math.Vector3
 import ink.ptms.uw.common.worldedit.bukkit.UWBukkitAdapter
+import ink.ptms.uw.common.worldedit.util.math.UWBlockVector3
+import ink.ptms.uw.common.worldedit.util.math.UWVector3
 import org.bukkit.Location
 import org.bukkit.World
 
@@ -31,20 +31,11 @@ class UWBukkitAdapter7Impl: UWBukkitAdapter {
         return BukkitAdapter.adapt(location)
     }
 
-    override fun asBlockVector3(location: Location): Any {
-        return BlockVector3.at(location.x, location.y, location.z)
+    override fun asBlockVector3(location: Location): UWBlockVector3 {
+        return UWBlockVector3(location.blockX, location.blockY, location.blockZ)
     }
 
-    override fun asVector3(location: Location): Any {
-        return Vector3.at(location.x, location.y, location.z)
-    }
-
-    override fun asBukkitLocation(vector: Any, world: World): Location? {
-        //WE7 BlockVector3从Vector3中独立了出来, 需要额外判断
-        return when (vector) {
-            is Vector3 -> Location(world, vector.x, vector.y, vector.z)
-            is BlockVector3 -> Location(world, vector.x.toDouble(), vector.y.toDouble(), vector.z.toDouble())
-            else -> null
-        }
+    override fun asVector3(location: Location): UWVector3 {
+        return UWVector3(location.x, location.y, location.z)
     }
 }

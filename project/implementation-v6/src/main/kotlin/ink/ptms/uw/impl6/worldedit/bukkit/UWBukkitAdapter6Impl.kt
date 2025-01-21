@@ -1,9 +1,10 @@
 package ink.ptms.uw.impl6.worldedit.bukkit
 
 import ink.ptms.uw.common.worldedit.bukkit.UWBukkitAdapter
+import ink.ptms.uw.common.worldedit.util.math.UWBlockVector3
+import ink.ptms.uw.common.worldedit.util.math.UWVector3
 import org.bukkit.Location
 import org.bukkit.World
-import org.bukkit.util.Vector
 import taboolib.library.reflex.ReflexClass
 
 /**
@@ -37,17 +38,11 @@ class UWBukkitAdapter6Impl: UWBukkitAdapter {
         return bukkitAdapter6.getLocalMethod("adapt", com.sk89q.worldedit.util.Location::class.java).invokeStatic(location) as Location
     }
 
-    override fun asBlockVector3(location: Location): Any {
-        return com.sk89q.worldedit.BlockVector(location.blockX, location.blockY, location.blockZ)
+    override fun asBlockVector3(location: Location): UWBlockVector3 {
+        return UWBlockVector3(location.blockX, location.blockY, location.blockZ)
     }
 
-    override fun asVector3(location: Location): Any {
-        return Vector(location.x, location.y, location.z)
-    }
-
-    override fun asBukkitLocation(vector: Any, world: World): Location? {
-        //WE6 BlockVector3继承于Vector, 不需要额外判断
-        return if (vector !is com.sk89q.worldedit.Vector) null
-        else Location(world, vector.x, vector.y, vector.z)
+    override fun asVector3(location: Location): UWVector3 {
+        return UWVector3(location.x, location.y, location.z)
     }
 }

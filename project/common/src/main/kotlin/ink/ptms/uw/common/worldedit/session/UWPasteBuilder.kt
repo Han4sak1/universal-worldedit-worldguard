@@ -2,6 +2,7 @@ package ink.ptms.uw.common.worldedit.session
 
 import com.sk89q.worldedit.extent.Extent
 import com.sk89q.worldedit.function.operation.Operation
+import ink.ptms.uw.common.worldedit.util.math.UWBlockVector3
 
 /**
  * ink.ptms.uw.common.worldedit.session
@@ -11,13 +12,12 @@ import com.sk89q.worldedit.function.operation.Operation
 abstract class UWPasteBuilder(open val holder: UWClipBoardHolder, open val targetExtent: Extent) {
     /**
      * 目标
-     * @param vector Vector(6.x) BlockVector3(7.x), 与UWBukkitAdapter搭配使用
-     * @return vector参数不匹配时为null
      */
-    abstract fun to(vector: Any): UWPasteBuilder?
+    abstract fun to(vector: UWBlockVector3): UWPasteBuilder
 
     /**
      * 在6.x时不会做任何更改
+     * @param sourceMask 与isLegacy搭配使用
      * @return sourceMask参数在7.x不匹配时为null
      */
     abstract fun maskSource(sourceMask: Any): UWPasteBuilder?

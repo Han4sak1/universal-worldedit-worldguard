@@ -7,6 +7,7 @@ import com.sk89q.worldedit.math.BlockVector3
 import com.sk89q.worldedit.session.ClipboardHolder
 import ink.ptms.uw.common.worldedit.session.UWClipBoardHolder
 import ink.ptms.uw.common.worldedit.session.UWPasteBuilder
+import ink.ptms.uw.common.worldedit.util.math.UWBlockVector3
 
 /**
  * ink.ptms.uw.impl7.worldedit.session
@@ -20,12 +21,9 @@ class UWPasteBuilder7Impl(override val holder: UWClipBoardHolder, override val t
     private var copyEntities: Boolean = true
     private var copyBiomes: Boolean = false
 
-    override fun to(vector: Any): UWPasteBuilder? {
-        return if (vector !is BlockVector3) null
-        else {
-            this.to = vector
-            this
-        }
+    override fun to(vector: UWBlockVector3): UWPasteBuilder {
+        this.to = BlockVector3.at(vector.x, vector.y, vector.z)
+        return this
     }
 
     override fun maskSource(sourceMask: Any): UWPasteBuilder? {

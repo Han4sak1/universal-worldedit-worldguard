@@ -4,6 +4,8 @@ import com.sk89q.worldguard.protection.ApplicableRegionSet
 import com.sk89q.worldguard.protection.managers.RemovalStrategy
 import com.sk89q.worldguard.protection.managers.storage.StorageException
 import com.sk89q.worldguard.protection.regions.ProtectedRegion
+import ink.ptms.uw.common.worldedit.util.math.UWBlockVector2
+import ink.ptms.uw.common.worldedit.util.math.UWBlockVector3
 import org.bukkit.Location
 import org.bukkit.World
 import org.bukkit.entity.Player
@@ -27,21 +29,11 @@ abstract class UWRegionManager(val world: World) {
     @Throws(StorageException::class)
     abstract fun saveChanges(): Boolean
 
-    /**
-     * @param position Vector2D(WE 6.x) BlockVector2(WE7.x)
-     */
-    abstract fun loadChunk(position: Any?)
+    abstract fun loadChunk(position: UWBlockVector2)
 
-    /**
-     * @param positions Vector2D(WE 6.x) BlockVector2(WE7.x)
-     */
-    abstract fun loadChunks(positions: Collection<Any>?)
+    abstract fun loadChunks(positions: Collection<UWBlockVector2>)
 
-    /**
-     * @param position Vector2D(WE 6.x) BlockVector2(WE7.x)
-     */
-    abstract fun unloadChunk(position: Any?)
-
+    abstract fun unloadChunk(position: UWBlockVector2)
 
     abstract fun getRegions(): Map<String, ProtectedRegion>
 
@@ -61,18 +53,11 @@ abstract class UWRegionManager(val world: World) {
 
     abstract fun removeRegion(id: String?, strategy: RemovalStrategy?): Set<ProtectedRegion>?
 
-    /**
-     * @param position Vector(WE 6.x) BlockVector3(WE7.x)
-     */
-    abstract fun getApplicableRegions(position: Any?): ApplicableRegionSet?
-
+    abstract fun getApplicableRegions(position: UWBlockVector3): ApplicableRegionSet?
 
     abstract fun getApplicableRegions(region: ProtectedRegion?): ApplicableRegionSet
 
-    /**
-     * @param position Vector(WE 6.x) BlockVector3(WE7.x)
-     */
-    abstract fun getApplicableRegionsIDs(position: Any?): List<String>?
+    abstract fun getApplicableRegionsIDs(position: UWBlockVector3): List<String>?
 
     abstract fun overlapsUnownedRegion(region: ProtectedRegion?, player: Player?): Boolean
 

@@ -6,6 +6,8 @@ import com.sk89q.worldguard.WorldGuard
 import com.sk89q.worldguard.bukkit.BukkitPlayer
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin
 import ink.ptms.uw.common.worldedit.WorldEdit
+import ink.ptms.uw.common.worldedit.util.math.UWBlockVector2
+import ink.ptms.uw.common.worldedit.util.math.UWBlockVector3
 import ink.ptms.uw.common.worldguard.protection.managers.UWRegionManager
 import org.bukkit.Location
 import org.bukkit.World
@@ -37,20 +39,18 @@ class UWRegionManager7Impl(world: World): UWRegionManager(world) {
         return wgRegionManager.saveChanges()
     }
 
-    override fun loadChunk(position: Any?) {
-        if (position !is BlockVector2) return
-        wgRegionManager.loadChunk(position)
+    override fun loadChunk(position: UWBlockVector2) {
+        wgRegionManager.loadChunk(BlockVector2.at(position.x, position.z))
     }
 
-    @Suppress("UNCHECKED_CAST")
-    override fun loadChunks(positions: Collection<Any>?) {
-        if (positions !is Collection<*> || positions.any { it !is BlockVector2 }) return
-        wgRegionManager.loadChunks(positions as Collection<BlockVector2>)
+    override fun loadChunks(positions: Collection<UWBlockVector2>) {
+        val vectors = positions.map { BlockVector2.at(it.x, it.z) }
+        wgRegionManager.loadChunks(vectors)
     }
 
-    override fun unloadChunk(position: Any?) {
-    if (position !is BlockVector2) return
-        wgRegionManager.unloadChunk(position)
+    override fun unloadChunk(position: UWBlockVector2) {
+        val vector = BlockVector2.at(position.x, position.z)
+        wgRegionManager.unloadChunk(vector)
     }
 
     override fun getRegions(): Map<String, com.sk89q.worldguard.protection.regions.ProtectedRegion> {
@@ -89,18 +89,18 @@ class UWRegionManager7Impl(world: World): UWRegionManager(world) {
         return wgRegionManager.removeRegion(id, strategy)
     }
 
-    override fun getApplicableRegions(position: Any?): com.sk89q.worldguard.protection.ApplicableRegionSet? {
-        if (position !is BlockVector3) return null
-        return wgRegionManager.getApplicableRegions(position)
+    override fun getApplicableRegions(position: UWBlockVector3): com.sk89q.worldguard.protection.ApplicableRegionSet? {
+        val vector = BlockVector3.at(position.x, position.y, position.z)
+        return wgRegionManager.getApplicableRegions(vector)
     }
 
     override fun getApplicableRegions(region: com.sk89q.worldguard.protection.regions.ProtectedRegion?): com.sk89q.worldguard.protection.ApplicableRegionSet {
         return wgRegionManager.getApplicableRegions(region)
     }
 
-    override fun getApplicableRegionsIDs(position: Any?): List<String>? {
-        if (position !is BlockVector3) return null
-        return wgRegionManager.getApplicableRegionsIDs(position)
+    override fun getApplicableRegionsIDs(position: UWBlockVector3): List<String>? {
+        val vector = BlockVector3.at(position.x, position.y, position.z)
+        return wgRegionManager.getApplicableRegionsIDs(vector)
     }
 
     override fun overlapsUnownedRegion(region: com.sk89q.worldguard.protection.regions.ProtectedRegion?, player: Player?): Boolean {
