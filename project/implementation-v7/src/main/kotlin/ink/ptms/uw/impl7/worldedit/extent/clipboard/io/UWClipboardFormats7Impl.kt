@@ -51,7 +51,7 @@ class UWClipboardFormats7Impl : UWClipBoardFormats {
             }
         } else {
             //FAWE
-            if (WorldEdit.API.majorVersion <= 21202) {
+            if (WorldEdit.API.majorVersion < 21202) {
                 return when (format) {
                     BuiltinClipBoardFormat.MCEDIT_SCHEMATIC_WE6_WE7_FAWE6_FAWE7 -> BuiltInClipboardFormat.MCEDIT_SCHEMATIC.isFormat(file)
                     BuiltinClipBoardFormat.NBT_FAWE6_FAWE7 -> BuiltInClipboardFormat.MINECRAFT_STRUCTURE.isFormat(file)
@@ -109,7 +109,7 @@ class UWClipboardFormats7Impl : UWClipBoardFormats {
             }
         } else {
             //FAWE
-            if (WorldEdit.API.majorVersion <= 21202) {
+            if (WorldEdit.API.majorVersion < 21202) {
                 return when (format) {
                     BuiltinClipBoardFormat.MCEDIT_SCHEMATIC_WE6_WE7_FAWE6_FAWE7 -> BuiltInClipboardFormat.MCEDIT_SCHEMATIC.getReader(inputStream)
                     BuiltinClipBoardFormat.NBT_FAWE6_FAWE7 -> BuiltInClipboardFormat.MINECRAFT_STRUCTURE.getReader(inputStream)
@@ -167,7 +167,7 @@ class UWClipboardFormats7Impl : UWClipBoardFormats {
             }
         } else {
             //FAWE
-            if (WorldEdit.API.majorVersion <= 21202) {
+            if (WorldEdit.API.majorVersion < 21202) {
                 return when (format) {
                     BuiltinClipBoardFormat.MCEDIT_SCHEMATIC_WE6_WE7_FAWE6_FAWE7 -> BuiltInClipboardFormat.MCEDIT_SCHEMATIC.getWriter(outputStream)
                     BuiltinClipBoardFormat.NBT_FAWE6_FAWE7 -> BuiltInClipboardFormat.MINECRAFT_STRUCTURE.getWriter(outputStream)
