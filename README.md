@@ -9,7 +9,7 @@ taboolib{
     relocate("ink.ptms.uw","xx.uw")
 }
 
-taboo("ink.ptms:um:1.0.0")
+taboo("ink.ptms:uw:1.0.0")
 ```
 
 ## 目前提供以下的跨版本兼容
