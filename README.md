@@ -16,6 +16,7 @@ taboo("ink.ptms:um:1.0.0")
 #### WorldEdit
 1. BukkitAdapter
 2. ClipBoardFormats
+3. ClipBoardHolder & PasteBuilder
 #### WorldGuard
 1. RegionManager
 
